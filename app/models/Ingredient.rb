@@ -16,4 +16,19 @@ class Ingredient
     @@all
   end
 
+  def self.find_by_id(ingredient_id)
+    @@all.find{|ingredient| ingredient.id == ingredient_id}
+  end
+
+  def self.most_common_allergen
+    result = Allergen.allergy_count.sort_by do |ingredient, number|
+      number
+    end.last
+    if !result
+      "No allergies"
+    else
+    "#{result[1]} people are allergic to #{find_by_id(result[0]).ingredient_name}"
+    end
+  end
+
 end

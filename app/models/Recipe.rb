@@ -1,4 +1,4 @@
-class Recipe 
+class Recipe
 
   attr_accessor :dish_name, :id, :ingredients
 
@@ -15,33 +15,34 @@ class Recipe
 
   def add_ingredients(ingredients_list)
     ingredients_list.each {|ingredient| add_ingredient(ingredient)}
-
   end
 
   def add_ingredient(ingredient)
     @ingredients << ingredient
+    RecipeIngredient.new(self.id, ingredient.id)
   end
 
   def self.all
-    @all
+    @@all
   end
 
   def users
     users = []
     RecipeCard.all.each do |card|
-      #binding.pry
        if card.recipe_id == self.id
-        
         users.push(User.find_by_id(card.user_id))
        end
     end
       users
   end
 
+  def self.find_by_id(recipe_id)
+    @@all.find {|recipe| recipe.id == recipe_id}
+  end
+
   def self.most_popular
-    @@all.sort_by! do |recipe| 
+    @@all.sort_by! do |recipe|
       recipe.users.length
-      #binding.pry
     end.last
   end
 
