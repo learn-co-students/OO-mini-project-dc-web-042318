@@ -3,8 +3,8 @@ require_relative '../config/environment.rb'
 #RECIPES
 potroast = Recipe.new("potroast")
 burger = Recipe.new("burger")
-fries = Recipe.new("burger")
-salad = Recipe.new("fries")
+fries = Recipe.new("fries")
+salad = Recipe.new("salad")
 sushi = Recipe.new("sushi")
 
 #INGREDIENTS

@@ -55,16 +55,16 @@ class User
     return_all_cards.sort_by! {|card| card.date}.last
   end
 
-  def unsafe_recipes
-    unsafe = []
-    allergens.each do |allergy|
-      Recipe.all.each do |recipe|
-        if recipe.ingredients.include?(allergy)
-          unsafe.push(recipe)
-        end
-      end
-    end
-    unsafe
-  end
+  # def safe_recipes
+  #   safe = []
+  #     Recipe.all.each do |recipe|
+  #       recipe.ingredients.each do |ingredient|
+  #         allergens.each do |allergy|
+
+  #         end
+  #       end
+  #     end
+  #   safe
+  # end
 
 end
