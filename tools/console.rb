@@ -9,13 +9,13 @@ burger = Recipe.new("burger")
 fries = Recipe.new("fries")
 
 
-jake.add_recipe_card(potroast, "today", 5)
-jake.add_recipe_card(chicken, "yesterday", 3)
-bob.add_recipe_card(burger, "today", 4)
-bob.add_recipe_card(fries, "Friday", 2)
-jake.add_recipe_card(fries, "today", 1)
-jake.add_recipe_card(fries, "Friday", 3)
-jake.add_recipe_card(fries, "Friday", 3)
+jake.add_recipe_card(potroast, 5, Time.new(2010))
+jake.add_recipe_card(chicken, 3, Time.new(2011))
+bob.add_recipe_card(burger, 4, Time.new(2000))
+bob.add_recipe_card(fries, 2, Time.new(2014))
+jake.add_recipe_card(fries, 1, Time.new(2018))
+jake.add_recipe_card(fries,  3)
+jake.add_recipe_card(fries, 3)
 
 
 onion = Ingredient.new("onion")

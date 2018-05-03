@@ -18,10 +18,9 @@ class User
     @@all
   end
 
-  def add_recipe_card(recipe, date, rating)
+  def add_recipe_card(recipe, rating, date  = Time.now)
     @recipes << recipe
-    new_card = RecipeCard.new(recipe.id, self.id)
-    new_card.date = date
+    new_card = RecipeCard.new(recipe.id, self.id, date)
     new_card.rating = rating
   end
 
@@ -36,8 +35,11 @@ class User
   end
 
   def top_three_recipes
-    return_all_cards.sort_by! {|card| card.rating}
-    
+    return_all_cards.sort_by! {|card| card.rating}.last(3)
+  end
+
+  def most_recent_recipe
+
   end
 
 end
