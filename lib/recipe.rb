@@ -3,7 +3,7 @@ class Recipe
   attr_reader :name
 
   @@recipes = []
-  
+
 
   def initialize(name)
     @name = name
@@ -25,7 +25,6 @@ class Recipe
       hash[obj.recipe] += 1
     end
     recipe_hash.max_by { |rec, c| c }
-    binding.pry
   end
 
   def add_ingredients(ingredients)
@@ -33,4 +32,10 @@ class Recipe
     self.ingredients = ingredients
   end
 
+  def allergens
+    allergen_array = self.ingredients.map do |i|
+      Allergen.all.select {|obj| i == obj.ingredient}
+    end
+    allergen_array.flatten.map{|allergen| allergen.ingredient}
+  end
 end

@@ -42,7 +42,13 @@ dairy = Ingredient.new("Dairy")
 lettuce = Ingredient.new("Lettuce")
 tomatoes = Ingredient.new("Tomatoes")
 
-# Create Allergens
+# Declare Allergens
+lucas.declare_allergen(tomatoes)
+britt.declare_allergen(onions)
+anna.declare_allergen(dairy)
+lucas.declare_allergen(chicken)
+britt.declare_allergen(tomatoes)
+
 
 chk_sal_ings = [onions, chicken, lettuce, eggs, tomatoes]
 chicken_salad.add_ingredients(chk_sal_ings)

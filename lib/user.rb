@@ -32,4 +32,9 @@ class User
     user_recipes.sort_by {|obj| obj.date}.reverse[0]
   end
 
+  def allergens
+    user_allergens = Allergen.all.select{|allergen| allergen.user == self }
+    user_allergens.map{|allergen| allergen.ingredient}
+  end
+
 end
