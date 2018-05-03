@@ -22,7 +22,7 @@ class Recipe
 
   def allergans
     Allergan.all.map do |allergan|
-      self.ingredients.select { |i| allergan.ingredient == i}
+      self.ingredients.select { |i| allergan.ingredient == i }
     end.flatten
   end
 
