@@ -1,11 +1,11 @@
-class RecipieCard
+class RecipeCard
 
-  attr_accessor :recipie_id, :user_id, :date, :rating
+  attr_accessor :recipe_id, :user_id, :date, :rating
 
   @@all = []
 
-  def initialize(recipie_id, user_id)
-    @recipie_id = recipie_id
+  def initialize(recipe_id, user_id)
+    @recipe_id = recipe_id
     @user_id = user_id
     @@all << self
   end

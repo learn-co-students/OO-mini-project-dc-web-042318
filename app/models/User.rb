@@ -1,14 +1,14 @@
 class User
 
   attr_accessor :name
-  attr_reader :recipies, :id
+  attr_reader :recipes, :id
 
   @@all = []
   @@id_count = 0
 
   def initialize(name)
     @name = name
-    @recipies = []
+    @recipes = []
     @@id_count += 1
     @id = @@id_count
     @@all << self
@@ -18,17 +18,26 @@ class User
     @@all
   end
 
-  def add_recipie_card(recipie, date, rating)
-    @recipies << recipie
-    new_card = RecipieCard.new(recipie.id, self.id)
+  def add_recipe_card(recipe, date, rating)
+    @recipes << recipe
+    new_card = RecipeCard.new(recipe.id, self.id)
     new_card.date = date
     new_card.rating = rating
   end
 
   def return_all_cards
-    RecipieCard.all.select do |card|
+    RecipeCard.all.select do |card|
       card.user_id = self.id
     end
+  end
+
+  def self.find_by_id(user_id)
+    @@all.find {|user| user.id == user_id }
+  end
+
+  def top_three_recipes
+    return_all_cards.sort_by! {|card| card.rating}
+    
   end
 
 end
