@@ -8,5 +8,8 @@ class Ingredient
     @@ingredients << self
   end
 
+  def most_common
+    
+  end
 
 end

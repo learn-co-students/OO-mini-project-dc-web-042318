@@ -9,4 +9,8 @@ class RecipeIngredient
     @@recipeingredients << self
   end
 
+  def self.all
+    @@recipeingredients
+  end
+
 end
