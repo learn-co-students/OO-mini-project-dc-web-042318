@@ -9,7 +9,7 @@ class Recipe
         @@all << self
     end
 
-    def self.all 
+    def self.all
         @@all
     end
 
@@ -45,7 +45,7 @@ class Recipe
     def allergens
         self.ingredients.select do |ingrt|
             if (Allergen.all.any?{|allr| allr.ingredient == ingrt})
-                ingrt 
+                ingrt
             end
         end
     end
@@ -57,3 +57,5 @@ class Recipe
     end
 
 end
+
+#done with munir, second time doing this code
