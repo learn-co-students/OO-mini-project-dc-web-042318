@@ -1,11 +1,11 @@
 class RecipieCard
 
-  attr_accessor :recipie, :user_id, :date, :rating
+  attr_accessor :recipie_id, :user_id, :date, :rating
 
   @@all = []
 
-  def initialize(recipie, user_id)
-    @recipie = recipie
+  def initialize(recipie_id, user_id)
+    @recipie_id = recipie_id
     @user_id = user_id
     @@all << self
   end

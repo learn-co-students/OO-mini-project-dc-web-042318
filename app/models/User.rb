@@ -20,7 +20,7 @@ class User
 
   def add_recipie_card(recipie, date, rating)
     @recipies << recipie
-    new_card = RecipieCard.new(recipie, self.id)
+    new_card = RecipieCard.new(recipie.id, self.id)
     new_card.date = date
     new_card.rating = rating
   end
