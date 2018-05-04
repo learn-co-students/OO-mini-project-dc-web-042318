@@ -36,7 +36,7 @@ class User
 
   def safe_recipes
     self.allergens.each do |allergen|
-      return Recipe.all.select { |r| r unless r.ingredients.include?(allergen.ingredient) }
+       Recipe.all.select { |r| r unless r.ingredients.include?(allergen.ingredient)}
     end
   end
 

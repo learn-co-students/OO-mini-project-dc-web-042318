@@ -9,7 +9,7 @@ class Recipe
   end
 
   def users
-    RecipeCard.all.map { |r| r.user if r.recipe == self }.compact
+    RecipeCard.all.select { |r| r.user if r.recipe == self }
   end
 
   def add_ingredients(ingredients)
@@ -17,12 +17,12 @@ class Recipe
   end
 
   def ingredients
-    RecipeIngredient.all.map { |r| r.ingredient if r.recipe == self }.compact
+    RecipeIngredient.all.select { |r| r.ingredient if r.recipe == self }
   end
 
   def allergens
-    Allergen.all.each do |allergen|
-      self.ingredients.select { |i| i if allergen.ingredient == i }
+    self.ingredients.each do |ingredient|
+      Allergen.all.select { |a| a.ingredient if ingredient.ingredient == a.ingredient }
     end
   end
 
