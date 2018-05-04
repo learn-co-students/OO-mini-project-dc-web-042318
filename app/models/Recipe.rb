@@ -21,9 +21,9 @@ class Recipe
   end
 
   def allergens
-    Allergen.all.map do |allergen|
-      self.ingredients.select { |i| allergen.ingredient == i }
-    end.flatten
+    Allergen.all.each do |allergen|
+      self.ingredients.select { |i| i if allergen.ingredient == i }
+    end
   end
 
   def self.most_popular
