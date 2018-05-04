@@ -1,4 +1,4 @@
-class Allergan
+class Allergen
   attr_accessor :ingredient, :user
 
   @@all = []
@@ -9,9 +9,8 @@ class Allergan
     @@all << self
   end
 
-  def self.most_common_allergan
-    counter = Hash.new(0)
-    Allergan.all.each { |c| counter[c.ingredient] += 1 }
+  def self.most_common_allergen
+    counter = Allergen.all.each_with_object(Hash.new(0)) { |k, h| h[k.ingredient] += 1 }
     counter.key(counter.values.max)
   end
 

@@ -20,15 +20,14 @@ class Recipe
     RecipeIngredient.all.map { |r| r.ingredient if r.recipe == self }.compact
   end
 
-  def allergans
-    Allergan.all.map do |allergan|
-      self.ingredients.select { |i| allergan.ingredient == i }
+  def allergens
+    Allergen.all.map do |allergen|
+      self.ingredients.select { |i| allergen.ingredient == i }
     end.flatten
   end
 
   def self.most_popular
-    counter = Hash.new(0)
-    RecipeCard.all.each { |c| counter[c.recipe] += 1 }
+    counter = RecipeCard.all.each_with_object(Hash.new(0)) { |k, h| h[k.recipe] += 1 }
     counter.key(counter.values.max)
   end
 
